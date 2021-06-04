@@ -520,16 +520,22 @@
 
    <div ng-if="item.type === TYPES.CLIMATE" class="item-entity-container">
       <div>
-         <div class="item-button -bottom-left" ng-if="entity.attributes.temperature && entity.state !== 'off'"
-            ng-click="increaseClimateTemp($event, item, entity)">
+         <div
+            class="item-button -bottom-left"
+            ng-if="entity.attributes.temperature && entity.state !== 'off'"
+            ng-click="increaseClimateTemp($event, item, entity)"
+         >
             <i class="mdi mdi-arrow-up-bold"></i>
          </div>
-         <div class="item-button -center-left" ng-if="entity.attributes.temperature && entity.state !== 'off'"
-            ng-click="decreaseClimateTemp($event, item, entity)">
+         <div
+            class="item-button -center-left"
+            ng-if="entity.attributes.temperature && entity.state !== 'off'"
+            ng-click="decreaseClimateTemp($event, item, entity)"
+         >
             <i class="mdi mdi-arrow-down-bold"></i>
          </div>
       </div>
-   
+
       <div class="item-climate">
          <!-- <div class="item-climate--target">
             <span ng-bind="climateTarget(item, entity)"></span>
@@ -546,24 +552,35 @@
             <span ng-bind="entity.attributes.fan_mode"></span>
          </div>
       </div>
-   
+
       <!-- Climate Mode (Head,Dry, Cool, Fan Only...) -->
-      <div ng-if="selectOpened(item)" class="item-select"
-         ng-style="itemSelectStyles(entity, entity.attributes.hvac_modes)">
-   
-         <div class="item-select--option" ng-repeat="option in entity.attributes.hvac_modes track by $index"
-            ng-class="{'-active': option === entity.state}" ng-click="setClimateMode($event, item, entity, option)">
+      <div
+         ng-if="selectOpened(item)"
+         class="item-select"
+         ng-style="itemSelectStyles(entity, entity.attributes.hvac_modes)"
+      >
+         <div
+            class="item-select--option"
+            ng-repeat="option in entity.attributes.hvac_modes track by $index"
+            ng-class="{'-active': option === entity.state}"
+            ng-click="setClimateMode($event, item, entity, option)"
+         >
             <span ng-bind="option"></span>
          </div>
       </div>
-   
+
       <!-- Climate Fan Mode (Low, Medium High....) -->
-      <div ng-if="selectOpened(seconditem)" class="item-select"
-         ng-style="itemSelectStyles(entity, entity.attributes.fan_modes)">
-   
-         <div class="item-select--option" ng-repeat="option in entity.attributes.fan_modes track by $index"
+      <div
+         ng-if="selectOpened(seconditem)"
+         class="item-select"
+         ng-style="itemSelectStyles(entity, entity.attributes.fan_modes)"
+      >
+         <div
+            class="item-select--option"
+            ng-repeat="option in entity.attributes.fan_modes track by $index"
             ng-class="{'-active': option === entity.attributes.fan_mode}"
-            ng-click="setClimateMode($event, item, entity, option)">
+            ng-click="setClimateMode($event, item, entity, option)"
+         >
             <span ng-bind="option"></span>
          </div>
       </div>
