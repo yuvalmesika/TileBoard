@@ -1389,6 +1389,32 @@ App.controller('Main', function ($scope, $timeout, $location, Api, tmhDynamicLoc
       return false;
    };
 
+   $scope.climateFanSpeed = function (item, entity) {
+      const value = entity.attributes.fan_mode;
+      return value;
+   };
+
+   $scope.setClimateFanMode = function ($event, item, entity, option) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      callService(item, 'climate', 'set_fan_mode', { entity_id: item.id, fan_mode: option });
+
+      $scope.closeActiveSelect();
+
+      return false;
+   };
+
+   $scope.setClimateMode = function ($event, item, entity, option) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      callService(item, 'climate', 'set_hvac_mode', { entity_id: item.id, fan_mode: option });
+
+      $scope.closeActiveSelect();
+
+      return false;
+   };
 
    $scope.increaseClimateTemp = function ($event, item, entity) {
       $event.preventDefault();
